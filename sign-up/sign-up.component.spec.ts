@@ -29,18 +29,22 @@ describe('SignUpComponent', () => {
   });
 
   it('Has label for username', () => {
-    expect(getNthLabelContent).toBe('Username');
+    expect(getNthLabelContent(0).textContent).toBe('Username');
   });
   
   it('Has label for Email', () => {
-    expect(getNthLabelContent).toBe('Email');
+    expect(getNthLabelContent(1).textContent).toBe('Email');
   });
 
   it('Has label for Password', () => {
-    expect(getNthLabelContent).toBe('Password');
+    expect(getNthLabelContent(2).textContent).toBe('Password');
   });
 
   function getNthLabelContent(index:number){
-    return compiled.querySelectorAll("label")[index]?.textContent;
+    return compiled.querySelectorAll("label")[index];
   }
+
+  it('Has input text for Username', () => {
+    const inputUserName:HTMLElement|null = (getNthLabelContent(0)!.querySelector("input"));
+  });
 });
